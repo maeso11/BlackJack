@@ -49,5 +49,10 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
+      <Label layoutX="37.0" layoutY="683.0" prefHeight="21.0" prefWidth="142.0" text="Ganador" textFill="#58b827">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
    </children>
 </Pane>
