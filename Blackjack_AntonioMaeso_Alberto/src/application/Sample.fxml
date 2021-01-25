@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
@@ -11,37 +12,37 @@
    <children>
       <ImageView fx:id="fondo" fitHeight="712.0" fitWidth="1021.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../img/fondoJavaFX.jpg" />
+            <Image url="@../img/fondoJavaFX.jpg" />
          </image>
       </ImageView>
       <ImageView fitHeight="173.0" fitWidth="124.0" layoutX="449.0" layoutY="194.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../img/DorsoCarta.jpg" />
+            <Image url="@../img/DorsoCarta.jpg" />
          </image>
       </ImageView>
       <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="47.0" layoutY="367.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../img/DorsoCarta.jpg" />
+            <Image url="@../img/DorsoCarta.jpg" />
          </image>
       </ImageView>
       <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="255.0" layoutY="438.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../img/DorsoCarta.jpg" />
+            <Image url="@../img/DorsoCarta.jpg" />
          </image>
       </ImageView>
       <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="469.0" layoutY="485.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../img/DorsoCarta.jpg" />
+            <Image url="@../img/DorsoCarta.jpg" />
          </image>
       </ImageView>
       <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="682.0" layoutY="438.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../img/DorsoCarta.jpg" />
+            <Image url="@../img/DorsoCarta.jpg" />
          </image>
       </ImageView>
       <ImageView fitHeight="118.0" fitWidth="109.0" layoutX="883.0" layoutY="367.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../img/DorsoCarta.jpg" />
+            <Image url="@../img/DorsoCarta.jpg" />
          </image>
       </ImageView>
       <Label layoutX="37.0" layoutY="662.0" text="ÚLTIMO GANADOR:" textFill="#58b827">
@@ -109,7 +110,8 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Button layoutX="443.0" layoutY="642.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="142.0" styleClass="boton" text="PEDIR CARTA" textAlignment="CENTER" />
-      <Button layoutX="763.0" layoutY="593.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="142.0" rotate="-13.0" styleClass="boton" text="PLANTARSE" textAlignment="CENTER" />
+      <Button fx:id="btnPedir" layoutX="443.0" layoutY="642.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="142.0" text="PEDIR CARTA" textAlignment="CENTER">
+         </Button>
+      <Button fx:id="btnPlantarse" layoutX="763.0" layoutY="593.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="142.0" rotate="-13.0" styleClass="boton" text="PLANTARSE" textAlignment="CENTER" />
    </children>
 </Pane>
