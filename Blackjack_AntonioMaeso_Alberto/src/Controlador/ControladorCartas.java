@@ -9,16 +9,13 @@ import Modelo.Carta;
 public class ControladorCartas {
 	
 	
-	
-	
-	public void creacion(){
+	public List<Carta> creacion(){
 		
 		List<Carta> cartas = new ArrayList<Carta>();
 		
 		//Cartas Baraja Corazones
 		
 		String paloCorazones ="-Corazones";
-		
 		
 		for (int i = 1; i <= 13; i++) {
 			Carta carta = new Carta();
@@ -64,6 +61,30 @@ public class ControladorCartas {
 			cartas.add(carta);
 		}
 		
+		
+		return cartas;
+		
+	}
+	
+	public Carta getCarta(List<Carta> cartas) {
+		Carta carta= null;
+		int numero = 0 + (int)(52 * Math.random()); 
+		for (int i = 0; i < cartas.size(); i++ ) {
+				if(i == numero) {
+					//carta = cartas.get(i).
+				}
+		}
+		
+		
+		return carta;
+	}
+	
+	
+	public static void main(String[]args) {
+		ControladorCartas cc = new ControladorCartas();
+		List<Carta> cartas = cc.creacion();
+		Carta carta = cc.getCarta(cartas);
+		System.out.println(carta);
 		
 	}
 

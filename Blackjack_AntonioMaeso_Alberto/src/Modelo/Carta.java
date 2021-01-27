@@ -34,6 +34,11 @@ public class Carta {
 		this.ruta = ruta;
 	}
 
-	
+
+	@Override
+	public String toString() {
+		return "Carta [valor=" + valor + ", Nombre=" + Nombre + ", ruta=" + ruta + "]";
+	}
+
 	
 }
