@@ -71,6 +71,7 @@ public class ControladorCartas {
 		int numero = 0 + (int)(52 * Math.random()); 
 		for (int i = 0; i < cartas.size(); i++ ) {
 				if(i == numero) {
+					System.out.println();
 					//carta = cartas.get(i).
 				}
 		}
