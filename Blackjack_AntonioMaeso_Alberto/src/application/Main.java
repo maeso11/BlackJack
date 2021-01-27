@@ -15,8 +15,7 @@ import javafx.fxml.FXMLLoader;
 
 
 public class Main extends Application {
-	@FXML Button btnPedir;
-	@FXML Button btnPlantarse;
+
 	
 	@Override
 	public void start(Stage primaryStage) {
@@ -27,19 +26,12 @@ public class Main extends Application {
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
 			primaryStage.show();
-			insertarImagen();
+			
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
 	}
 	
-	public void insertarImagen() {
-		URL imagen = getClass().getResource("/img/fondoBoton.jpg");
-		Image fondo = new Image(imagen.toString(), 142, 31, false, true);
-		btnPedir.setGraphic(new ImageView(fondo));
-		btnPlantarse.setGraphic(new ImageView(fondo));
-		
-	}
 	
 	public static void main(String[] args) {
 		launch(args);
