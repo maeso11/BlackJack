@@ -68,15 +68,14 @@ public class ControladorCartas {
 	
 	public Carta getCarta(List<Carta> cartas) {
 		Carta carta= null;
-		int numero = 0 + (int)(52 * Math.random()); 
-		for (int i = 0; i < cartas.size(); i++ ) {
+		int numero =(int)(52 * Math.random());
+		int size = cartas.size();
+		for (int i = size -1; i >= 0; i --) {
 				if(i == numero) {
-					System.out.println();
-					//carta = cartas.get(i).
+					carta = cartas.get(i);
+					cartas.remove(i);
 				}
 		}
-		
-		
 		return carta;
 	}
 	
@@ -86,6 +85,7 @@ public class ControladorCartas {
 		List<Carta> cartas = cc.creacion();
 		Carta carta = cc.getCarta(cartas);
 		System.out.println(carta);
+		
 		
 	}
 
