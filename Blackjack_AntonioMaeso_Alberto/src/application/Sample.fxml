@@ -110,11 +110,11 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Button fx:id="btnPedir" layoutX="443.0" layoutY="642.0" mnemonicParsing="false" onAction="#pedirCarta" prefHeight="31.0" prefWidth="142.0" styleClass="boton" text="PEDIR CARTA" textAlignment="CENTER">
+      <Button fx:id="btnPedir" layoutX="443.0" layoutY="642.0" mnemonicParsing="false" onMouseClicked="#pedirCarta" prefHeight="31.0" prefWidth="142.0" styleClass="boton" text="PEDIR CARTA" textAlignment="CENTER">
          <effect>
             <InnerShadow />
          </effect></Button>
-      <Button fx:id="btnPlantarse" layoutX="763.0" layoutY="593.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="142.0" rotate="-13.0" styleClass="boton" text="PLANTARSE" textAlignment="CENTER">
+      <Button fx:id="btnPlantarse" layoutX="763.0" layoutY="593.0" mnemonicParsing="false" onMouseClicked="#plantarse" prefHeight="31.0" prefWidth="142.0" rotate="-13.0" styleClass="boton" text="PLANTARSE" textAlignment="CENTER">
          <effect>
             <InnerShadow />
          </effect></Button>

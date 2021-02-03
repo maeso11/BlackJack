@@ -10,7 +10,13 @@ import javafx.scene.layout.Pane;
 
 public class SampleController {
 
-	public void pedirCarta (ActionEvent e) {
+	public void pedirCarta (MouseEvent e) {
 		System.out.println("Hola");
 	}
+	
+	public void plantarse (MouseEvent e) {
+		System.out.println("Adios");
+	}
+	
+	
 }
