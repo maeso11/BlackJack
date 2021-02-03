@@ -84,9 +84,7 @@ public class ControladorCartas {
 		ControladorCartas cc = new ControladorCartas();
 		List<Carta> cartas = cc.creacion();
 		Carta carta = cc.getCarta(cartas);
-		System.out.println(carta);
-		
-		
+		System.out.println(carta);	
 	}
 
 }
