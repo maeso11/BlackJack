@@ -21,7 +21,7 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		
 		try {
-			Pane root = (Pane)FXMLLoader.load(getClass().getResource("Sample.fxml"));
+			Pane root = (Pane)FXMLLoader.load(getClass().getResource("Inicio.fxml"));
 			Scene scene = new Scene(root,1021,712);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
@@ -31,6 +31,8 @@ public class Main extends Application {
 			e.printStackTrace();
 		}
 	}
+	
+	
 	
 	
 	public static void main(String[] args) {

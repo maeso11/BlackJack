@@ -16,9 +16,9 @@ public class SampleController {
 						turnoBanca, turno1, turno2, turno3, turno4, turno5;
 	@FXML private Label puntosBanca, puntos1, puntos2, puntos3, puntos4, puntos5,
 						nombre1, nombre2, nombre3, nombre4, nombre5, ultimoGanador;
-	
+	int turno = (int)(Math.random()*5);
+
 	public void initialize() {
-		int turno = (int)(Math.random()*5);
 
 		switch (turno){
 			case 1:

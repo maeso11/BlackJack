@@ -14,7 +14,7 @@
             <Image url="@../img/fondoInicio.jpg" />
          </image>
       </ImageView>
-      <Button layoutX="174.0" layoutY="211.0" mnemonicParsing="false" styleClass="boton" text="COMENZAR PARTIDA">
+      <Button layoutX="174.0" layoutY="211.0" mnemonicParsing="false" onMouseClicked="#cambiarEscena" styleClass="boton" text="COMENZAR PARTIDA">
          <effect>
             <InnerShadow />
          </effect>
