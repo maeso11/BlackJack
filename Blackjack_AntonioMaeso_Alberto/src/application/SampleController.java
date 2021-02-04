@@ -19,10 +19,11 @@ import javafx.scene.layout.Pane;
 
 public class SampleController {
 
-	@FXML private ImageView cartaBanca, carta1, carta2, carta3, carta4, carta5,
+	@FXML private ImageView cartaAdicional, carta1, carta2, carta3, carta4, carta5,
 						turnoBanca, turno1, turno2, turno3, turno4, turno5;
 	@FXML private Label puntosBanca, puntos1, puntos2, puntos3, puntos4, puntos5,
-						nombre1, nombre2, nombre3, nombre4, nombre5, ultimoGanador;
+						nombre1, nombre2, nombre3, nombre4, nombre5, ultimoGanador, cartaBanca;
+	
 	int turno = (int)(Math.random()*5);
 	ControladorCartas controlador = new ControladorCartas();
 	List<Carta> cartas = controlador.creacion();
@@ -76,12 +77,12 @@ public class SampleController {
 		}
 	}
 	
-	public void turnoJugador1 (MouseEvent e) {
-		//
+	public void turnoJugador (MouseEvent e) {
+		
 		Carta carta = controlador.getCarta(cartas);
 		File file = new File(carta.getRuta());
-		Image cartaNueva = new Image(file.toURI().toString());
-		carta1.setImage(cartaNueva);
+		Image cartaNueva = new Image(carta.getRuta());
+		cartaAdicional.setImage(cartaNueva);
 	}
 	public void pedirCarta (MouseEvent e) {
 		System.out.println("Adios");

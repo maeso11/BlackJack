@@ -68,8 +68,9 @@ public class ControladorCartas {
 	
 	public Carta getCarta(List<Carta> cartas) {
 		Carta carta= new Carta();
-		int numero =(int)(52 * Math.random());
 		int size = cartas.size();
+		int numero =(int)(size * Math.random());
+
 		for (int i = size -1; i >= 0; i --) {
 				if(i == numero) {
 					carta = cartas.get(i);

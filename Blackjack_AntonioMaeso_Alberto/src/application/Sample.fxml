@@ -15,17 +15,17 @@
             <Image url="@../img/fondoJavaFX.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="cartaBanca" fitHeight="173.0" fitWidth="124.0" layoutX="449.0" layoutY="194.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="cartaAdicional" fitHeight="173.0" fitWidth="124.0" layoutX="449.0" layoutY="194.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../img/DorsoCarta.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="carta1" fitHeight="118.0" fitWidth="109.0" layoutX="47.0" layoutY="367.0" onMouseClicked="#turnoJugador1" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="carta1" fitHeight="118.0" fitWidth="109.0" layoutX="47.0" layoutY="367.0" onMouseClicked="#turnoJugador" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../img/DorsoCarta.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="carta2" fitHeight="118.0" fitWidth="109.0" layoutX="255.0" layoutY="438.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="carta2" fitHeight="118.0" fitWidth="109.0" layoutX="255.0" layoutY="438.0" onMouseClicked="#turnoJugador" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../img/DorsoCarta.jpg" />
          </image>
@@ -35,12 +35,12 @@
             <Image url="@../img/DorsoCarta.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="carta4" fitHeight="118.0" fitWidth="109.0" layoutX="682.0" layoutY="438.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="carta4" fitHeight="118.0" fitWidth="109.0" layoutX="682.0" layoutY="438.0" onMouseClicked="#turnoJugador" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../img/DorsoCarta.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="carta5" fitHeight="118.0" fitWidth="109.0" layoutX="883.0" layoutY="367.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="carta5" fitHeight="118.0" fitWidth="109.0" layoutX="883.0" layoutY="367.0" onMouseClicked="#turnoJugador" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../img/DorsoCarta.jpg" />
          </image>
@@ -148,5 +148,6 @@
             <Image url="@../img/indicadorTurno.jpg" />
          </image>
       </ImageView>
+      <Label fx:id="cartaBanca" layoutX="18.0" layoutY="7.0" onMouseClicked="#turnoJugador" prefHeight="118.0" prefWidth="83.0" />
    </children>
 </Pane>
