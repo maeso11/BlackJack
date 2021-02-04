@@ -21,19 +21,20 @@ public class InicioController {
 	private void cambiarEscena (ActionEvent event) {
 
 		try {
+
+			Node source = (Node) event.getSource();
+			Stage cierre = (Stage) this.btnComienza.getScene().getWindow(); 
+		    cierre.close();
+		    
+		    
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("Sample.fxml"));
 			Parent root = loader.load();
 			SampleController control = loader.getController();
-			Scene scene = new Scene(root);
+			Scene scene = new Scene(root,1021,712);
 			Stage stage = new Stage();
 			stage.initModality(Modality.APPLICATION_MODAL);
 			stage.setScene(scene);
 			stage.showAndWait();
-			
-			
-			Node source = (Node) event.getSource();
-			Stage cierre = (Stage) this.btnComienza.getScene().getWindow(); 
-		    cierre.close();
 
 		} catch (IOException e1) {
 			e1.printStackTrace();
