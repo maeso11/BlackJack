@@ -1,5 +1,9 @@
 package application;
 
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+
 import Controlador.ControladorCartas;
 import Modelo.Carta;
 import javafx.event.ActionEvent;
@@ -21,6 +25,8 @@ public class SampleController {
 						nombre1, nombre2, nombre3, nombre4, nombre5, ultimoGanador;
 	int turno = (int)(Math.random()*5);
 	ControladorCartas controlador = new ControladorCartas();
+	List<Carta> cartas = controlador.creacion();
+	
 
 	public void initialize() {
 		
@@ -72,8 +78,9 @@ public class SampleController {
 	
 	public void turnoJugador1 (MouseEvent e) {
 		//
-		Carta carta = controlador.getCarta();
-		Image cartaNueva = new Image(getClass().getResourceAsStream(carta.getRuta()));
+		Carta carta = controlador.getCarta(cartas);
+		File file = new File(carta.getRuta());
+		Image cartaNueva = new Image(file.toURI().toString());
 		carta1.setImage(cartaNueva);
 	}
 	public void pedirCarta (MouseEvent e) {

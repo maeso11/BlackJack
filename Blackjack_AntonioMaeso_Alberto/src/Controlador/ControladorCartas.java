@@ -21,7 +21,7 @@ public class ControladorCartas {
 			Carta carta = new Carta();
 			carta.setNombre(i+paloCorazones);
 			carta.setValor(i);
-			carta.setRuta("img/"+i+paloCorazones+".jpg");
+			carta.setRuta("img/Baraja/Corazones/"+i+paloCorazones+".jpg");
 			cartas.add(carta);
 		}
 		
@@ -33,7 +33,7 @@ public class ControladorCartas {
 			Carta carta = new Carta();
 			carta.setNombre(i+paloDiamante);
 			carta.setValor(i);
-			carta.setRuta("img/"+i+paloDiamante+".jpg");
+			carta.setRuta("img/Baraja/Diamantes/"+i+paloDiamante+".jpg");
 			cartas.add(carta);
 		}
 		
@@ -45,7 +45,7 @@ public class ControladorCartas {
 			Carta carta = new Carta();
 			carta.setNombre(i+paloPicas);
 			carta.setValor(i);
-			carta.setRuta("img/"+i+paloPicas+".jpg");
+			carta.setRuta("img/Baraja/Picas/"+i+paloPicas+".jpg");
 			cartas.add(carta);
 		}
 		
@@ -57,7 +57,7 @@ public class ControladorCartas {
 			Carta carta = new Carta();
 			carta.setNombre(i+paloTreboles);
 			carta.setValor(i);
-			carta.setRuta("img/"+i+paloTreboles+".jpg");
+			carta.setRuta("img/Baraja/Treboles/"+i+paloTreboles+".jpg");
 			cartas.add(carta);
 		}
 		
@@ -66,8 +66,8 @@ public class ControladorCartas {
 		
 	}
 	
-	public Carta getCarta() {
-		Carta carta= null;
+	public Carta getCarta(List<Carta> cartas) {
+		Carta carta= new Carta();
 		int numero =(int)(52 * Math.random());
 		int size = cartas.size();
 		for (int i = size -1; i >= 0; i --) {
@@ -83,7 +83,7 @@ public class ControladorCartas {
 	public static void main(String[]args) {
 		ControladorCartas cc = new ControladorCartas();
 		List<Carta> cartas = cc.creacion();
-		Carta carta = cc.getCarta();
+		Carta carta = cc.getCarta(cartas);
 		System.out.println(carta);	
 	}
 
