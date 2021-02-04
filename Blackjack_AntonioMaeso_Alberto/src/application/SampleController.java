@@ -71,7 +71,7 @@ public class SampleController {
 	}
 	
 	public void turnoJugador1 (MouseEvent e) {
-
+		//
 		Carta carta = controlador.getCarta();
 		Image cartaNueva = new Image(getClass().getResourceAsStream(carta.getRuta()));
 		carta1.setImage(cartaNueva);
