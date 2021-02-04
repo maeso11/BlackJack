@@ -1,11 +1,14 @@
 package application;
 
+import Controlador.ControladorCartas;
+import Modelo.Carta;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
@@ -17,9 +20,11 @@ public class SampleController {
 	@FXML private Label puntosBanca, puntos1, puntos2, puntos3, puntos4, puntos5,
 						nombre1, nombre2, nombre3, nombre4, nombre5, ultimoGanador;
 	int turno = (int)(Math.random()*5);
+	ControladorCartas controlador = new ControladorCartas();
 
 	public void initialize() {
-
+		
+		
 		switch (turno){
 			case 1:
 				System.out.println("empieza el jugador " + turno);
@@ -63,6 +68,13 @@ public class SampleController {
 				turnoBanca.setVisible(false);
 				break;
 		}
+	}
+	
+	public void turnoJugador1 (MouseEvent e) {
+
+		Carta carta = controlador.getCarta();
+		Image cartaNueva = new Image(getClass().getResourceAsStream(carta.getRuta()));
+		carta1.setImage(cartaNueva);
 	}
 	public void pedirCarta (MouseEvent e) {
 		System.out.println("Adios");

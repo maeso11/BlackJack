@@ -20,7 +20,7 @@
             <Image url="@../img/DorsoCarta.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="carta1" fitHeight="118.0" fitWidth="109.0" layoutX="47.0" layoutY="367.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="carta1" fitHeight="118.0" fitWidth="109.0" layoutX="47.0" layoutY="367.0" onMouseClicked="#turnoJugador1" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../img/DorsoCarta.jpg" />
          </image>
