@@ -30,29 +30,36 @@ public class SampleController {
 	int turno = (int)(Math.random()*7);
 	ControladorCartas controlador = new ControladorCartas();
 	List<Carta> cartas = controlador.creacion();
-	Jugador jugador1;
-	Jugador jugador2;
-	Jugador jugador4;
-	Jugador jugador5;
-	Jugador croupier;
-	Jugador yo;
-	
+	Jugador jugador1 = new Jugador();
+	Jugador jugador2 = new Jugador();
+	Jugador jugador4 = new Jugador();
+	Jugador jugador5 = new Jugador();
+	Jugador croupier = new Jugador();
+	Jugador yo = new Jugador();
+	ControladorJugadores c1 = new ControladorJugadores(jugador1);
 	
 
 	public void initialize() {
-		ControladorJugadores c1 = new ControladorJugadores(jugador1);
+		
 		ControladorJugadores c2 = new ControladorJugadores(jugador2);
 		ControladorJugadores c4 = new ControladorJugadores(jugador4);
 		ControladorJugadores c5 = new ControladorJugadores(jugador5);
 		ControladorJugadores cBanca = new ControladorJugadores(croupier);
 		ControladorJugadores cYo = new ControladorJugadores(yo);
 		
+		
+		c1.recogerCarta(jugador1);
+		
+		/*
 		c1.recogerCarta(controlador.getCarta(cartas));
 		c2.recogerCarta(controlador.getCarta(cartas));
 		c4.recogerCarta(controlador.getCarta(cartas));
 		c5.recogerCarta(controlador.getCarta(cartas));
 		cBanca.recogerCarta(controlador.getCarta(cartas));
 		cYo.recogerCarta(controlador.getCarta(cartas));
+		*/
+		System.out.println(controlador.getCarta(cartas));
+		
 		
 		turnos(turno);
 
@@ -60,11 +67,16 @@ public class SampleController {
 	}
 	
 	public void turnoJugador (MouseEvent e) {
-		
+		/*
 		Carta carta = controlador.getCarta(cartas);
 		File file = new File(carta.getRuta());
 		Image cartaNueva = new Image(carta.getRuta());
 		cartaAdicional.setImage(cartaNueva);
+		*/
+		jugador1.setNombre("Alberto");
+		
+		 Jugador j1 = c1.puntuacion(jugador1);
+		 puntos1.setText("PUNTOS: "+ j1.getPuntuacion());
 	}
 	public void pedirCarta (MouseEvent e) {
 		System.out.println("Adios");
