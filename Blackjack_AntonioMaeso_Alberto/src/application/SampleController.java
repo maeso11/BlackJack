@@ -67,15 +67,16 @@ public class SampleController {
 	}
 	
 	public void turnoJugador (MouseEvent e) {
-		/*
-		Carta carta = controlador.getCarta(cartas);
-		File file = new File(carta.getRuta());
-		Image cartaNueva = new Image(carta.getRuta());
-		cartaAdicional.setImage(cartaNueva);
-		*/
-		jugador1.setNombre("Alberto");
 		
-		 Jugador j1 = c1.puntuacion(jugador1);
+		Jugador j1 = c1.puntuacion(jugador1);
+		//Carta carta = controlador.getCarta(cartas);
+		File file = new File(j1.getRutaCarta());
+		Image cartaNueva = new Image(j1.getRutaCarta());
+		cartaAdicional.setImage(cartaNueva);
+		
+		
+		
+		 
 		 puntos1.setText("PUNTOS: "+ j1.getPuntuacion());
 	}
 	public void pedirCarta (MouseEvent e) {

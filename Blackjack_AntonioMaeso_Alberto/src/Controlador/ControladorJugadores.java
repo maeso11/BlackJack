@@ -41,6 +41,7 @@ public class ControladorJugadores {
 		System.out.println(carta);
 		puntos += carta.getValor();
 		jugador.setPuntuacion(puntos);
+		jugador.setRutaCarta(carta.getRuta());
 		
 		
 		return jugador;
@@ -48,3 +49,9 @@ public class ControladorJugadores {
 	
 	
 }
+
+
+
+
+
+

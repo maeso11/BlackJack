@@ -6,6 +6,7 @@ public class Jugador {
 	String nombre;
 	List<Carta> cartas;
 	int puntuacion;
+	String rutaCarta;
 	boolean turno;
 	
 	
@@ -34,6 +35,14 @@ public class Jugador {
 		this.cartas = cartas;
 	}
 
+	
+	
+	public String getRutaCarta() {
+		return rutaCarta;
+	}
+	public void setRutaCarta(String rutaCarta) {
+		this.rutaCarta = rutaCarta;
+	}
 	public int getPuntuacion() {
 		return puntuacion;
 	}
