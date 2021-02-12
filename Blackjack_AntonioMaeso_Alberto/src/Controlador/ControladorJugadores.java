@@ -36,13 +36,18 @@ public class ControladorJugadores {
 		List<Carta> cartas = jugador.getCartas();
 		cartas.add(carta);
 		
+		for (int i = 0; i<cartas.size(); i++) {
+			puntos = puntos + cartas.get(i).getValor();
+		}
+		
 		System.out.println(cartas.size());
 		
-		System.out.println(carta);
+		
+		
+		/*System.out.println(carta);
 		puntos += carta.getValor();
 		jugador.setPuntuacion(puntos);
-		jugador.setRutaCarta(carta.getRuta());
-		
+		jugador.setRutaCarta(carta.getRuta());*/
 		
 		return jugador;
 	}
