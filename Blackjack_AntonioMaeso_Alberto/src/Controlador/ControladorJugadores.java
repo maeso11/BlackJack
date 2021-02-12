@@ -41,7 +41,7 @@ public class ControladorJugadores {
 		}
 		
 		System.out.println(cartas.size());
-		
+		//
 		
 		
 		/*System.out.println(carta);
