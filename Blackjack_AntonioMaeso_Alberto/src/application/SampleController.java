@@ -37,54 +37,86 @@ public class SampleController {
 	Jugador croupier = new Jugador();
 	Jugador yo = new Jugador();
 	ControladorJugadores c1 = new ControladorJugadores(jugador1);
+	ControladorJugadores c2 = new ControladorJugadores(jugador2);
+	ControladorJugadores c4 = new ControladorJugadores(jugador4);
+	ControladorJugadores c5 = new ControladorJugadores(jugador5);
+	ControladorJugadores cBanca = new ControladorJugadores(croupier);
+	ControladorJugadores cYo = new ControladorJugadores(yo);
 	
 
 	public void initialize() {
+	
 		
-		ControladorJugadores c2 = new ControladorJugadores(jugador2);
-		ControladorJugadores c4 = new ControladorJugadores(jugador4);
-		ControladorJugadores c5 = new ControladorJugadores(jugador5);
-		ControladorJugadores cBanca = new ControladorJugadores(croupier);
-		ControladorJugadores cYo = new ControladorJugadores(yo);
-		
-		
-		c1.recogerCarta(jugador1);
-		
-		/*
-		c1.recogerCarta(controlador.getCarta(cartas));
-		c2.recogerCarta(controlador.getCarta(cartas));
-		c4.recogerCarta(controlador.getCarta(cartas));
-		c5.recogerCarta(controlador.getCarta(cartas));
-		cBanca.recogerCarta(controlador.getCarta(cartas));
-		cYo.recogerCarta(controlador.getCarta(cartas));
-		*/
-		System.out.println(controlador.getCarta(cartas));
-		
+		Jugador j1 = c1.recogerCarta(jugador1);
+		puntos1.setText("PUNTOS: "+ j1.getPuntuacion());
+		Jugador j2 = c2.recogerCarta(jugador2);
+		puntos2.setText("PUNTOS: "+ j2.getPuntuacion());
+		Jugador j4 = c4.recogerCarta(jugador4);
+		puntos4.setText("PUNTOS: "+ j4.getPuntuacion());
+		Jugador j5 = c5.recogerCarta(jugador5);
+		puntos5.setText("PUNTOS: "+ j5.getPuntuacion());
+		Jugador jBanca = cBanca.recogerCarta(croupier);
+		puntosBanca.setText("PUNTOS: "+ jBanca.getPuntuacion());
+		Jugador jPlayer = cYo.recogerCarta(yo);
+		puntos3.setText("PUNTOS: "+ jPlayer.getPuntuacion());
 		
 		turnos(turno);
 
-		
 	}
 	
-	public void turnoJugador (MouseEvent e) {
-		
+	public void turnoJugador1 (MouseEvent e) {
 		Jugador j1 = c1.puntuacion(jugador1);
-		//Carta carta = controlador.getCarta(cartas);
-		File file = new File(j1.getRutaCarta());
 		Image cartaNueva = new Image(j1.getRutaCarta());
-		cartaAdicional.setImage(cartaNueva);
-		
-		
-		
-		 
-		 puntos1.setText("PUNTOS: "+ j1.getPuntuacion());
+		cartaAdicional.setImage(cartaNueva); 
+		puntos1.setText("PUNTOS: "+ j1.getPuntuacion());
 	}
+	public void turnoJugador2 (MouseEvent e) {
+		Jugador j2 = c2.puntuacion(jugador2);
+		Image cartaNueva = new Image(j2.getRutaCarta());
+		cartaAdicional.setImage(cartaNueva); 
+		puntos2.setText("PUNTOS: "+ j2.getPuntuacion());
+	}
+	public void turnoJugador4 (MouseEvent e) {
+		Jugador j4 = c4.puntuacion(jugador4);
+		Image cartaNueva = new Image(j4.getRutaCarta());
+		cartaAdicional.setImage(cartaNueva); 
+		puntos4.setText("PUNTOS: "+ j4.getPuntuacion());
+	}
+	public void turnoJugador5 (MouseEvent e) {
+		Jugador j5 = c5.puntuacion(jugador5);
+		Image cartaNueva = new Image(j5.getRutaCarta());
+		cartaAdicional.setImage(cartaNueva); 
+		puntos5.setText("PUNTOS: "+ j5.getPuntuacion());
+	}
+	public void turnoBanca (MouseEvent e) {
+		Jugador jBanca = cBanca.puntuacion(croupier);
+		Image cartaNueva = new Image(jBanca.getRutaCarta());
+		cartaAdicional.setImage(cartaNueva); 
+		puntosBanca.setText("PUNTOS: "+ jBanca.getPuntuacion());
+	}
+
 	public void pedirCarta (MouseEvent e) {
-		System.out.println("Adios");
+		Jugador jPlayer = cYo.puntuacion(yo);
+		Image cartaNueva = new Image(jPlayer.getRutaCarta());
+		cartaAdicional.setImage(cartaNueva); 
+		puntos3.setText("PUNTOS: "+ jPlayer.getPuntuacion());
 	}
 	
 	public void plantarse (MouseEvent e) {
 		System.out.println("Adios");
+	}
+	
+	public void filtro(Jugador jugador) {
+		
+		if(jugador.getPuntuacion()>= 17 && jugador.getPuntuacion()<21) {
+				//plantarse
+		}else if(jugador.getPuntuacion() == 21) {
+				//ganar
+		}else if(jugador.getPuntuacion() > 22) {
+				//perder
+		}else {
+				//pedir
+		}
 	}
 	
 	public void turnos (int turno) {
