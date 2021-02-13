@@ -19,6 +19,11 @@ public class ControladorJugadores {
 		this.jugador = jugador;
 	}
 
+	/**
+	 * El jugador correspondiente recibe la carta inicial
+	 * @param jugador
+	 * @return
+	 */
 	public Jugador recogerCarta(Jugador jugador) {
 		
 		List<Carta> Jugadorcarta = new ArrayList<Carta>();
@@ -31,6 +36,11 @@ public class ControladorJugadores {
 	}
 	
 	
+	/**
+	 * Devuelve la puntuacion del jugador despues de pedir una carta nueva
+	 * @param jugador
+	 * @return
+	 */
 	public Jugador puntuacion(Jugador jugador) {
 		int puntos=0;
 		//puntos += carta.getValor();

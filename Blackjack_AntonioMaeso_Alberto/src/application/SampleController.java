@@ -65,49 +65,84 @@ public class SampleController {
 	}
 	
 	public void turnoJugador1 (MouseEvent e) {
-		if(jugador1.isTurno() == true) {
-		jugador1 = c1.puntuacion(jugador1);
-		Image cartaNueva = new Image(jugador1.getRutaCarta());
-		cartaAdicional.setImage(cartaNueva); 
-		puntos1.setText("PUNTOS: "+ jugador1.getPuntuacion());
+		if(turno == 2) {
+			jugador1 = c1.puntuacion(jugador1);
+			Image cartaNueva = new Image(jugador1.getRutaCarta());
+			cartaAdicional.setImage(cartaNueva); 
+			puntos1.setText("PUNTOS: "+ jugador1.getPuntuacion());
+			turno=3;
+			turnos(turno);
 		}
+		
+		
 	}
 	public void turnoJugador2 (MouseEvent e) {
-		jugador2 = c2.puntuacion(jugador2);
-		Image cartaNueva = new Image(jugador2.getRutaCarta());
-		cartaAdicional.setImage(cartaNueva); 
-		puntos2.setText("PUNTOS: "+ jugador2.getPuntuacion());
+		if(turno == 3) {
+			jugador2 = c2.puntuacion(jugador1);
+			Image cartaNueva = new Image(jugador2.getRutaCarta());
+			cartaAdicional.setImage(cartaNueva); 
+			puntos2.setText("PUNTOS: "+ jugador2.getPuntuacion());
+			turno=4;
+			turnos(turno);
+		}
 	}
 	public void turnoJugador4 (MouseEvent e) {
-		Jugador j4 = c4.puntuacion(jugador4);
-		Image cartaNueva = new Image(j4.getRutaCarta());
-		cartaAdicional.setImage(cartaNueva); 
-		puntos4.setText("PUNTOS: "+ j4.getPuntuacion());
+		if(turno == 5) {
+			jugador4 = c4.puntuacion(jugador4);
+			Image cartaNueva = new Image(jugador4.getRutaCarta());
+			cartaAdicional.setImage(cartaNueva); 
+			puntos4.setText("PUNTOS: "+ jugador4.getPuntuacion());
+			turno=6;
+			turnos(turno);
+		}
+			
+			
 	}
 	public void turnoJugador5 (MouseEvent e) {
-		Jugador j5 = c5.puntuacion(jugador5);
-		Image cartaNueva = new Image(j5.getRutaCarta());
-		cartaAdicional.setImage(cartaNueva); 
-		puntos5.setText("PUNTOS: "+ j5.getPuntuacion());
+		if(turno == 6) {
+			jugador5 = c5.puntuacion(jugador1);
+			Image cartaNueva = new Image(jugador5.getRutaCarta());
+			cartaAdicional.setImage(cartaNueva); 
+			puntos5.setText("PUNTOS: "+ jugador5.getPuntuacion());
+			turno=1;
+			turnos(turno);
+		}
+			
+			
 	}
 	public void turnoBanca (MouseEvent e) {
-		Jugador jBanca = cBanca.puntuacion(croupier);
-		Image cartaNueva = new Image(jBanca.getRutaCarta());
-		cartaAdicional.setImage(cartaNueva); 
-		puntosBanca.setText("PUNTOS: "+ jBanca.getPuntuacion());
+		if(turno == 1) {
+			croupier = cBanca.puntuacion(croupier);
+			Image cartaNueva = new Image(croupier.getRutaCarta());
+			cartaAdicional.setImage(cartaNueva); 
+			puntosBanca.setText("PUNTOS: "+ croupier.getPuntuacion());
+			turno=2;
+			turnos(turno);
+		}
+
+			
 	}
 
 	public void pedirCarta (MouseEvent e) {
-		Jugador jPlayer = cYo.puntuacion(yo);
-		Image cartaNueva = new Image(jPlayer.getRutaCarta());
-		cartaAdicional.setImage(cartaNueva); 
-		puntos3.setText("PUNTOS: "+ jPlayer.getPuntuacion());
+		if(turno == 4) {
+			Jugador jPlayer = cYo.puntuacion(yo);
+			Image cartaNueva = new Image(jPlayer.getRutaCarta());
+			cartaAdicional.setImage(cartaNueva); 
+			puntos3.setText("PUNTOS: "+ jPlayer.getPuntuacion());
+			turno=5;
+			turnos(turno);
+		}
+
 	}
 	
 	public void plantarse (MouseEvent e) {
 		System.out.println("Adios");
 	}
 	
+	/**
+	 * Acciones que puede realizar el jugador
+	 * @param jugador
+	 */
 	public void filtro(Jugador jugador) {
 		
 		if(jugador.getPuntuacion()>= 17 && jugador.getPuntuacion()<21) {
@@ -118,64 +153,73 @@ public class SampleController {
 				//perder
 		}else {
 				//pedir
+			
 		}
 	}
 	
 	public void turnos (int turno) {
 		switch (turno){
 			case 1:
+				turnoBanca.setVisible(true);
+				turno1.setVisible(false);
+				turno2.setVisible(false);
+				turno3.setVisible(false);
+				turno4.setVisible(false);
+				turno5.setVisible(false);
+				
+				break;
+			
+			case 2:
+				turno1.setVisible(true);
 				turno2.setVisible(false);
 				turno3.setVisible(false);
 				turno4.setVisible(false);
 				turno5.setVisible(false);
 				turnoBanca.setVisible(false);
-				turno = 2;
+				
 				break;
-			case 2:
+			case 3:
 				System.out.println("empieza el jugador " + turno);
 				turno1.setVisible(false);
+				turno2.setVisible(true);
 				turno3.setVisible(false);
 				turno4.setVisible(false);
 				turno5.setVisible(false);
 				turnoBanca.setVisible(false);
-				turno = 3;
+				
 				break;
-			case 3:
+			case 4:
 				System.out.println("empieza el jugador " + turno);
 				System.out.println("Es tu turno");
 				turno1.setVisible(false);
 				turno2.setVisible(false);
+				turno3.setVisible(true);
 				turno4.setVisible(false);
 				turno5.setVisible(false);
 				turnoBanca.setVisible(false);
-				turno = 4;
-				break;
-			case 4:
-				System.out.println("empieza el jugador " + turno);
-				turno1.setVisible(false);
-				turno2.setVisible(false);
-				turno3.setVisible(false);
-				turno5.setVisible(false);
-				turnoBanca.setVisible(false);
-				turno = 5;
+				
 				break;
 			case 5:
 				System.out.println("empieza el jugador " + turno);
 				turno1.setVisible(false);
 				turno2.setVisible(false);
 				turno3.setVisible(false);
-				turno4.setVisible(false);
+				turno4.setVisible(true);
+				turno5.setVisible(false);
 				turnoBanca.setVisible(false);
-				turno = 5;
+				
 				break;
 			case 6:
+				System.out.println("empieza el jugador " + turno);
 				turno1.setVisible(false);
 				turno2.setVisible(false);
 				turno3.setVisible(false);
 				turno4.setVisible(false);
-				turno5.setVisible(false);
-				turno = 1;
+				turno5.setVisible(true);
+				turnoBanca.setVisible(false);
+				
 				break;
+			
 		}
 	}
 }
