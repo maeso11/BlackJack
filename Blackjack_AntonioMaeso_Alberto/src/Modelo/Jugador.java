@@ -36,7 +36,6 @@ public class Jugador {
 	}
 
 	
-	
 	public String getRutaCarta() {
 		return rutaCarta;
 	}

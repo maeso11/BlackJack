@@ -65,16 +65,18 @@ public class SampleController {
 	}
 	
 	public void turnoJugador1 (MouseEvent e) {
-		Jugador j1 = c1.puntuacion(jugador1);
-		Image cartaNueva = new Image(j1.getRutaCarta());
+		if(jugador1.isTurno() == true) {
+		jugador1 = c1.puntuacion(jugador1);
+		Image cartaNueva = new Image(jugador1.getRutaCarta());
 		cartaAdicional.setImage(cartaNueva); 
-		puntos1.setText("PUNTOS: "+ j1.getPuntuacion());
+		puntos1.setText("PUNTOS: "+ jugador1.getPuntuacion());
+		}
 	}
 	public void turnoJugador2 (MouseEvent e) {
-		Jugador j2 = c2.puntuacion(jugador2);
-		Image cartaNueva = new Image(j2.getRutaCarta());
+		jugador2 = c2.puntuacion(jugador2);
+		Image cartaNueva = new Image(jugador2.getRutaCarta());
 		cartaAdicional.setImage(cartaNueva); 
-		puntos2.setText("PUNTOS: "+ j2.getPuntuacion());
+		puntos2.setText("PUNTOS: "+ jugador2.getPuntuacion());
 	}
 	public void turnoJugador4 (MouseEvent e) {
 		Jugador j4 = c4.puntuacion(jugador4);
@@ -127,6 +129,7 @@ public class SampleController {
 				turno4.setVisible(false);
 				turno5.setVisible(false);
 				turnoBanca.setVisible(false);
+				turno = 2;
 				break;
 			case 2:
 				System.out.println("empieza el jugador " + turno);
@@ -135,6 +138,7 @@ public class SampleController {
 				turno4.setVisible(false);
 				turno5.setVisible(false);
 				turnoBanca.setVisible(false);
+				turno = 3;
 				break;
 			case 3:
 				System.out.println("empieza el jugador " + turno);
@@ -144,6 +148,7 @@ public class SampleController {
 				turno4.setVisible(false);
 				turno5.setVisible(false);
 				turnoBanca.setVisible(false);
+				turno = 4;
 				break;
 			case 4:
 				System.out.println("empieza el jugador " + turno);
@@ -152,6 +157,7 @@ public class SampleController {
 				turno3.setVisible(false);
 				turno5.setVisible(false);
 				turnoBanca.setVisible(false);
+				turno = 5;
 				break;
 			case 5:
 				System.out.println("empieza el jugador " + turno);
@@ -160,6 +166,7 @@ public class SampleController {
 				turno3.setVisible(false);
 				turno4.setVisible(false);
 				turnoBanca.setVisible(false);
+				turno = 5;
 				break;
 			case 6:
 				turno1.setVisible(false);
@@ -167,6 +174,7 @@ public class SampleController {
 				turno3.setVisible(false);
 				turno4.setVisible(false);
 				turno5.setVisible(false);
+				turno = 1;
 				break;
 		}
 	}
