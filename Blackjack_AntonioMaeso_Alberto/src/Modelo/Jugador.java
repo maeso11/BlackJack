@@ -8,8 +8,16 @@ public class Jugador {
 	int puntuacion;
 	String rutaCarta;
 	boolean turno;
+	String situacion;
 	
 	
+	
+	public Jugador(String nombre) {
+		super();
+		this.nombre = nombre;
+		this.situacion = "pedir";
+	}
+		
 	public Jugador() {}
 	public boolean isTurno() {
 		return turno;
@@ -48,6 +56,12 @@ public class Jugador {
 
 	public void setPuntuacion(int puntuacion) {
 		this.puntuacion = puntuacion;
+	}
+	public String getSituacion() {
+		return situacion;
+	}
+	public void setSituacion(String situacion) {
+		this.situacion = situacion;
 	}
 	
 	
