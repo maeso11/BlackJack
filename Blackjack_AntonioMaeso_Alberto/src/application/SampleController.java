@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import javax.xml.stream.events.StartDocument;
+
 import Controlador.ControladorCartas;
 import Controlador.ControladorJugadores;
 import Modelo.Carta;
@@ -15,12 +17,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextInputDialog;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 
 public class SampleController {
 
@@ -33,10 +37,10 @@ public class SampleController {
 	int turno = (int)(Math.random()*7);
 	ControladorCartas controlador = new ControladorCartas();
 	List<Carta> cartas = controlador.creacion();
-	Jugador jugador1 = new Jugador("Victor el machine");
-	Jugador jugador2 = new Jugador("Ruben el duende");
-	Jugador jugador4 = new Jugador("David el obseso");
-	Jugador jugador5 = new Jugador("Manuel el pesao");
+	Jugador jugador1 = new Jugador("Misil");
+	Jugador jugador2 = new Jugador("Victor el machine");
+	Jugador jugador4 = new Jugador("Ruben el duende");
+	Jugador jugador5 = new Jugador("David el obseso");
 	Jugador croupier = new Jugador("Edu la banca");
 	Jugador yo = new Jugador("yo");
 	ControladorJugadores c1 = new ControladorJugadores(jugador1);
@@ -49,7 +53,7 @@ public class SampleController {
 
 	public void initialize() {
 	
-		TextInputDialog dialog = new TextInputDialog("Manueeeeeeee");
+		TextInputDialog dialog = new TextInputDialog("APTOOO");
 		dialog.setTitle("Poker Stars");
 		//dialog.setGraphic(new ImageView(this.getClass().getResource("login.png").toString()));
 		dialog.setHeaderText("Introduce tu nombre");
@@ -57,6 +61,12 @@ public class SampleController {
 		// Traditional way to get the response value.
 		Optional<String> result = dialog.showAndWait();
 		yo.setNombre(String.valueOf(result.get()));
+		
+		nombre1.setText(jugador1.getNombre());
+		nombre2.setText(jugador2.getNombre());
+		nombre3.setText(yo.getNombre());
+		nombre4.setText(jugador4.getNombre());
+		nombre5.setText(jugador5.getNombre());
 		
 		
 		Jugador j1 = c1.recogerCarta(jugador1);
@@ -152,7 +162,7 @@ public class SampleController {
 			croupier = cBanca.puntuacion(croupier);
 			Image cartaNueva = new Image(croupier.getRutaCarta());
 			cartaAdicional.setImage(cartaNueva); 
-			puntosBanca.setText("PUNTOS: "+ croupier.getPuntuacion());
+			puntosBanca.setText("PUNTOS BANCA: "+ croupier.getPuntuacion());
 			filtro(croupier);
 			turno=2;
 			turnos(turno);
@@ -179,7 +189,14 @@ public class SampleController {
 	}
 	
 	public void plantarse (MouseEvent e) {
-		System.out.println("Adios");
+		 Alert alert = new Alert(Alert.AlertType.INFORMATION);
+		 alert.setHeaderText(null);
+		 alert.setTitle("Info");
+		 alert.setContentText(yo.getNombre()+" se planta.");
+		 alert.showAndWait();
+		 yo.setSituacion("Planta");
+		 turno=5;
+		 turnos(turno);
 	}
 	
 	/**
@@ -189,20 +206,25 @@ public class SampleController {
 	public void filtro(Jugador jugador) {
 		
 		if(jugador.getPuntuacion()>= 17 && jugador.getPuntuacion()<21) {
+			
 			 Alert alert = new Alert(Alert.AlertType.INFORMATION);
 			 alert.setHeaderText(null);
 			 alert.setTitle("Info");
 			 alert.setContentText(jugador.getNombre()+" se planta.");
 			 alert.showAndWait();
 			 jugador.setSituacion("Planta");
-			 System.out.println(jugador.getSituacion());
 			 
 		}else if(jugador.getPuntuacion() == 21) {
-			Alert alert = new Alert(Alert.AlertType.INFORMATION);
+   
+		    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
 		    alert.setHeaderText(null);
-		    alert.setTitle("Info");
-		    alert.setContentText(jugador.getNombre()+" a ganado.");
-		    alert.showAndWait();
+		    alert.setTitle("Confirmación");
+		    alert.setContentText(jugador.getNombre()+" a ganado."+"\n ¿Desea reiniciar la partida?");
+		    Optional<ButtonType> action = alert.showAndWait();
+		    if (action.get() == ButtonType.OK) {
+		    	
+		    }
+
 		}else if(jugador.getPuntuacion() >= 22) {
 			Alert alert = new Alert(Alert.AlertType.INFORMATION);
 		    alert.setHeaderText(null);
