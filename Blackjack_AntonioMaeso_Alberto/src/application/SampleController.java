@@ -100,7 +100,7 @@ public class SampleController {
 			puntos1.setText("PUNTOS: "+ jugador1.getPuntuacion());
 			filtro(jugador1);
 			if(jugador1.getSituacion().equals("planta")) {
-				ganadoresPlan(jugador1);
+				jugadoresplantados.add(jugador1);
 				puntos1.setText("PUNTOS: "+ jugador1.getPuntuacion()+" Se Planta");
 			}else if(jugador1.getSituacion().equals("eliminado")) {
 				puntos1.setText("ELIMINADO");
@@ -123,7 +123,7 @@ public class SampleController {
 			puntos2.setText("PUNTOS: "+ jugador2.getPuntuacion());
 			filtro(jugador2);
 			if(jugador2.getSituacion().equals("planta")) {
-				ganadoresPlan(jugador2);
+				jugadoresplantados.add(jugador2);
 				puntos2.setText("PUNTOS: "+ jugador2.getPuntuacion()+" Se Planta");
 			}else if(jugador2.getSituacion().equals("eliminado")) {
 				puntos2.setText("ELIMINADO");
@@ -144,7 +144,7 @@ public class SampleController {
 			puntos4.setText("PUNTOS: "+ jugador4.getPuntuacion());
 			filtro(jugador4);
 			if(jugador4.getSituacion().equals("planta")) {
-				ganadoresPlan(jugador4);
+				jugadoresplantados.add(jugador4);
 				puntos4.setText("PUNTOS: "+ jugador4.getPuntuacion()+" Se Planta");
 			}else if(jugador4.getSituacion().equals("eliminado")) {
 				puntos4.setText("ELIMINADO");
@@ -167,7 +167,7 @@ public class SampleController {
 			puntos5.setText("PUNTOS: "+ jugador5.getPuntuacion());
 			filtro(jugador5);
 			if(jugador5.getSituacion().equals("planta")) {
-				ganadoresPlan(jugador5);
+				jugadoresplantados.add(jugador5);
 				puntos5.setText("PUNTOS: "+ jugador5.getPuntuacion()+" Se Planta");
 			}else if(jugador5.getSituacion().equals("eliminado")) {
 				puntos5.setText("ELIMINADO");
@@ -191,7 +191,7 @@ public class SampleController {
 			puntosBanca.setText("PUNTOS BANCA: "+ croupier.getPuntuacion());
 			Bancafiltro(croupier);
 				if(croupier.getSituacion().equals("planta")) {
-					ganadoresPlan(croupier);
+					jugadoresplantados.add(croupier);
 					puntosBanca.setText("PUNTOS: "+ croupier.getPuntuacion()+" Se Planta");
 				}else if(croupier.getSituacion().equals("eliminado")) {
 					puntosBanca.setText("ELIMINADO");
@@ -230,7 +230,7 @@ public class SampleController {
 		 alert.showAndWait();
 		 yo.setSituacion("planta");
 		 if(yo.getSituacion().equals("planta")) {
-				ganadoresPlan(yo);
+			 jugadoresplantados.add(yo);
 				puntos3.setText("PUNTOS: "+ yo.getPuntuacion()+" Se Planta");
 			}else if(yo.getSituacion().equals("eliminado")) {
 				puntos3.setText("ELIMINADO");
@@ -339,15 +339,13 @@ public class SampleController {
 	}
 	
 	
-	@SuppressWarnings("unchecked")
-	public void ganadoresPlan(Jugador jugador) {
-		jugadoresplantados.add(jugador);
+	public void ganadoresPlan() {
 		
 		//Collections.sort(jugadoresplantados);
 		
 		String ganadores="";
 		for (int i = 0; i < jugadoresplantados.size(); i++) {
-			ganadores = ganadores +"\n"+((Jugador) jugadoresplantados.get(i)).getNombre();
+			ganadores = ganadores +"\n"+(jugadoresplantados.get(i)).getNombre();
 		}	
 		 Alert alert = new Alert(Alert.AlertType.INFORMATION);
 		 alert.setHeaderText(null);
