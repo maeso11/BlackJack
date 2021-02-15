@@ -61,35 +61,23 @@ public class SampleController {
 		Optional<String> result = dialog.showAndWait();
 		yo.setNombre(String.valueOf(result.get()));
 		
+		inicio();
+		
 		nombre1.setText(jugador1.getNombre());
 		nombre2.setText(jugador2.getNombre());
 		nombre3.setText(yo.getNombre());
 		nombre4.setText(jugador4.getNombre());
 		nombre5.setText(jugador5.getNombre());
 		
-		
-		Jugador j1 = c1.recogerCarta(jugador1);
-		puntos1.setText("PUNTOS: "+ j1.getPuntuacion());
-		Jugador j2 = c2.recogerCarta(jugador2);
-		puntos2.setText("PUNTOS: "+ j2.getPuntuacion());
-		Jugador j4 = c4.recogerCarta(jugador4);
-		puntos4.setText("PUNTOS: "+ j4.getPuntuacion());
-		Jugador j5 = c5.recogerCarta(jugador5);
-		puntos5.setText("PUNTOS: "+ j5.getPuntuacion());
-		Jugador jBanca = cBanca.recogerCarta(croupier);
-		puntosBanca.setText("PUNTOS: "+ jBanca.getPuntuacion());
-		Jugador jPlayer = cYo.recogerCarta(yo);
-		puntos3.setText("PUNTOS: "+ jPlayer.getPuntuacion());
-		
-		turnos(turno);
+
 		
 		
-
-
-
-
 	}
 	
+	/**
+	 * Acciones posibles del jugador 1
+	 * @param e
+	 */
 	public void turnoJugador1 (MouseEvent e) {
 		filtroentrada(jugador1);
 		if(!jugador1.getSituacion().equals("pedir") ) {
@@ -107,12 +95,16 @@ public class SampleController {
 			}else if(jugador1.getSituacion().equals("eliminado")) {
 				puntos1.setText("ELIMINADO");
 			}
+			ganadoresPlan();
 			turno=3;
 			turnos(turno);
 		}
-		
-		
 	}
+	
+	/**
+	 * Acciones posibles del jugador 2
+	 * @param e
+	 */
 	public void turnoJugador2 (MouseEvent e) {
 		filtroentrada(jugador2);
 		if(!jugador2.getSituacion().equals("pedir")) {
@@ -130,10 +122,16 @@ public class SampleController {
 			}else if(jugador2.getSituacion().equals("eliminado")) {
 				puntos2.setText("ELIMINADO");
 			}
+			ganadoresPlan();
 			turno=4;
 			turnos(turno);
 		}
 	}
+	
+	/**
+	 * Acciones posibles del jugador 4
+	 * @param e
+	 */
 	public void turnoJugador4 (MouseEvent e) {
 		filtroentrada(jugador4);
 		if(!jugador4.getSituacion().equals("pedir")) {
@@ -151,12 +149,16 @@ public class SampleController {
 			}else if(jugador4.getSituacion().equals("eliminado")) {
 				puntos4.setText("ELIMINADO");
 			}
+			ganadoresPlan();
 			turno=6;
 			turnos(turno);
-		}
-			
-			
+		}	
 	}
+	
+	/**
+	 * Acciones posibles del jugador 5
+	 * @param e
+	 */
 	public void turnoJugador5 (MouseEvent e) {
 		filtroentrada(jugador5);
 		if(!jugador5.getSituacion().equals("pedir")) {
@@ -174,12 +176,16 @@ public class SampleController {
 			}else if(jugador5.getSituacion().equals("eliminado")) {
 				puntos5.setText("ELIMINADO");
 			}
+			ganadoresPlan();
 			turno=1;
 			turnos(turno);
-		}
-			
-			
+		}	
 	}
+	
+	/**
+	 * Acciones posibles de la banca
+	 * @param e
+	 */
 	public void turnoBanca (MouseEvent e) {
 		
 		filtroentrada(croupier);
@@ -199,14 +205,17 @@ public class SampleController {
 					puntosBanca.setText("ELIMINADO");
 					
 				}
+			ganadoresPlan();
 			turno=2;
 			turnos(turno);
 			
-		}
-
-			
+		}	
 	}
 
+	/**
+	 * Acción de pedir carta
+	 * @param e
+	 */
 	public void pedirCarta (MouseEvent e) {
 		filtroentrada(yo);
 		if(!yo.getSituacion().equals("pedir")) {
@@ -218,12 +227,16 @@ public class SampleController {
 			cartaAdicional.setImage(cartaNueva); 
 			puntos3.setText("PUNTOS: "+ yo.getPuntuacion());
 			filtroPlayer(yo);
+			ganadoresPlan();
 			turno=5;
 			turnos(turno);
 		}
-
 	}
 	
+	/**
+	 * Plantarse
+	 * @param e
+	 */
 	public void plantarse (MouseEvent e) {
 		 Alert alert = new Alert(Alert.AlertType.INFORMATION);
 		 alert.setHeaderText(null);
@@ -261,10 +274,10 @@ public class SampleController {
 		    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
 		    alert.setHeaderText(null);
 		    alert.setTitle("Confirmación");
-		    alert.setContentText(jugador.getNombre()+" a ganado."+"\n¿Desea finalizar la partida?");
+		    alert.setContentText(jugador.getNombre()+" a ganado."+"\n¿Desea volvera jugar?");
 		    Optional<ButtonType> action = alert.showAndWait();
 		    if (action.get() == ButtonType.OK) {
-		    	System.exit(0);
+		    	inicio();
 		    }
 
 		}else if(jugador.getPuntuacion() >= 22) {
@@ -286,10 +299,10 @@ public class SampleController {
 		    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
 		    alert.setHeaderText(null);
 		    alert.setTitle("Confirmación");
-		    alert.setContentText(jugador.getNombre()+" a ganado."+"\n¿Desea finalizar la partida?");
+		    alert.setContentText(jugador.getNombre()+" a ganado."+"\n¿Desea volver a jugar?");
 		    Optional<ButtonType> action = alert.showAndWait();
 		    if (action.get() == ButtonType.OK) {
-		    	System.exit(0);
+		    	inicio();
 		    } 
 		}
 	}
@@ -309,10 +322,10 @@ public class SampleController {
 		    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
 		    alert.setHeaderText(null);
 		    alert.setTitle("Confirmación");
-		    alert.setContentText(jugador.getNombre()+" a ganado."+"\n ¿Desea finalizar la partida?");
+		    alert.setContentText(jugador.getNombre()+" a ganado."+"\n ¿Desea volver a jugar?");
 		    Optional<ButtonType> action = alert.showAndWait();
 		    if (action.get() == ButtonType.OK) {
-		    	System.exit(0);
+		    	inicio();
 		    }
 
 		}else if(jugador.getPuntuacion() >= 22) {
@@ -322,14 +335,17 @@ public class SampleController {
 		    alert.setContentText(jugador.getNombre()+" a perdido.\nLos jugadores que no han se han pasado de 21 ganan."+"\n¿Desea reiniciar la partida?");
 		    Optional<ButtonType> action = alert.showAndWait();
 		    if (action.get() == ButtonType.OK) {
-		    	System.exit(0);
+		    	inicio();
 		    }
 		}else {
 				
 		}
 	}
 	
-	
+	/**
+	 * Comprobar puntos del jugador
+	 * @param jugador
+	 */
 	public void filtroentrada(Jugador jugador) {
 		if(jugador.getPuntuacion()>= 17 && jugador.getPuntuacion()<21) {
 			 jugador.setSituacion("Planta");
@@ -343,23 +359,67 @@ public class SampleController {
 	
 	public void ganadoresPlan() {
 		
-		String ganadores="";
-		int x=0;
-		for (int i = 0; i < jugadoresplantados.size(); i++) {	
-			if(x < jugadoresplantados.get(i).getPuntuacion()) {
-				x = jugadoresplantados.get(i).getPuntuacion();
-				ganadores = jugadoresplantados.get(i).getNombre();
+		if(jugador1.getSituacion().equals("planta") || jugador1.getSituacion().equals("eliminado") 
+			&& jugador2.getSituacion().equals("planta") || jugador2.getSituacion().equals("eliminado")
+			&& jugador4.getSituacion().equals("planta") || jugador4.getSituacion().equals("eliminado")
+			&& jugador5.getSituacion().equals("planta") || jugador5.getSituacion().equals("eliminado")
+			&& croupier.getSituacion().equals("planta") || croupier.getSituacion().equals("eliminado")
+			&& yo.getSituacion().equals("planta") || yo.getSituacion().equals("eliminado")) {
+			
+			String ganadores="";
+			int x=0;
+			for (int i = 0; i < jugadoresplantados.size(); i++) {	
+				if(x < jugadoresplantados.get(i).getPuntuacion()) {
+					x = jugadoresplantados.get(i).getPuntuacion();
+					ganadores = jugadoresplantados.get(i).getNombre();
+				}
 			}
+			
+			 Alert alert = new Alert(Alert.AlertType.INFORMATION);
+			 alert.setHeaderText(null);
+			 alert.setTitle("Info");
+			 alert.setContentText("Ganador: " + ganadores);
+			 alert.showAndWait();
 		}
-		
-		 Alert alert = new Alert(Alert.AlertType.INFORMATION);
-		 alert.setHeaderText(null);
-		 alert.setTitle("Info");
-		 alert.setContentText(ganadores);
-		 alert.showAndWait();	
+			
 	}
 	
+	public void inicio () {
+		
+		jugador1 = new Jugador("Misil");
+		jugador2 = new Jugador("Victor el machine");
+		jugador4 = new Jugador("Ruben el duende");
+		jugador5 = new Jugador("David el obseso");
+		croupier = new Jugador("Edu la banca");
+		yo = new Jugador("yo");
+		
+		c1 = new ControladorJugadores(jugador1);
+		c2 = new ControladorJugadores(jugador2);
+		c4 = new ControladorJugadores(jugador4);
+		c5 = new ControladorJugadores(jugador5);
+		cBanca = new ControladorJugadores(croupier);
+		cYo = new ControladorJugadores(yo);
+		
+		Jugador j1 = c1.recogerCarta(jugador1);
+		puntos1.setText("PUNTOS: "+ j1.getPuntuacion());
+		Jugador j2 = c2.recogerCarta(jugador2);
+		puntos2.setText("PUNTOS: "+ j2.getPuntuacion());
+		Jugador j4 = c4.recogerCarta(jugador4);
+		puntos4.setText("PUNTOS: "+ j4.getPuntuacion());
+		Jugador j5 = c5.recogerCarta(jugador5);
+		puntos5.setText("PUNTOS: "+ j5.getPuntuacion());
+		Jugador jBanca = cBanca.recogerCarta(croupier);
+		puntosBanca.setText("PUNTOS: "+ jBanca.getPuntuacion());
+		Jugador jPlayer = cYo.recogerCarta(yo);
+		puntos3.setText("PUNTOS: "+ jPlayer.getPuntuacion());
+		
+		turnos(turno);
+	}
 	
+	/**
+	 * Genera un turno aleatorio
+	 * @param turno
+	 */
 	public void turnos (int turno) {
 		switch (turno){
 			case 1:

@@ -66,6 +66,11 @@ public class ControladorCartas {
 		
 	}
 	
+	/**
+	 * devuelve una carta al azar de la baraja
+	 * @param cartas
+	 * @return
+	 */
 	public Carta getCarta(List<Carta> cartas) {
 		Carta carta= new Carta();
 		int size = cartas.size();
