@@ -34,12 +34,14 @@ public class SampleController {
 	int turno = (int)(Math.random()*7);
 	ControladorCartas controlador = new ControladorCartas();
 	List<Jugador> jugadoresplantados = new ArrayList<Jugador>(); 
+	
 	Jugador jugador1 = new Jugador("Misil");
 	Jugador jugador2 = new Jugador("Victor el machine");
 	Jugador jugador4 = new Jugador("Ruben el duende");
 	Jugador jugador5 = new Jugador("David el obseso");
 	Jugador croupier = new Jugador("Edu la banca");
 	Jugador yo = new Jugador("yo");
+	
 	ControladorJugadores c1 = new ControladorJugadores(jugador1);
 	ControladorJugadores c2 = new ControladorJugadores(jugador2);
 	ControladorJugadores c4 = new ControladorJugadores(jugador4);
@@ -341,12 +343,15 @@ public class SampleController {
 	
 	public void ganadoresPlan() {
 		
-		//Collections.sort(jugadoresplantados);
-		
 		String ganadores="";
-		for (int i = 0; i < jugadoresplantados.size(); i++) {
-			ganadores = ganadores +"\n"+(jugadoresplantados.get(i)).getNombre();
-		}	
+		int x=0;
+		for (int i = 0; i < jugadoresplantados.size(); i++) {	
+			if(x < jugadoresplantados.get(i).getPuntuacion()) {
+				x = jugadoresplantados.get(i).getPuntuacion();
+				ganadores = jugadoresplantados.get(i).getNombre();
+			}
+		}
+		
 		 Alert alert = new Alert(Alert.AlertType.INFORMATION);
 		 alert.setHeaderText(null);
 		 alert.setTitle("Info");
