@@ -83,6 +83,7 @@ public class SampleController {
 		if(!jugador1.getSituacion().equals("pedir") ) {
 			turno=3;
 			turnos(turno);
+			ganadoresPlan();
 		}else if(turno == 2) {
 			jugador1 = c1.puntuacion(jugador1);
 			Image cartaNueva = new Image(jugador1.getRutaCarta());
@@ -95,7 +96,7 @@ public class SampleController {
 			}else if(jugador1.getSituacion().equals("eliminado")) {
 				puntos1.setText("ELIMINADO");
 			}
-			ganadoresPlan();
+			
 			turno=3;
 			turnos(turno);
 		}
@@ -110,6 +111,7 @@ public class SampleController {
 		if(!jugador2.getSituacion().equals("pedir")) {
 			turno=4;
 			turnos(turno);
+			ganadoresPlan();
 		}else if(turno == 3) {
 			jugador2 = c2.puntuacion(jugador2);
 			Image cartaNueva = new Image(jugador2.getRutaCarta());
@@ -122,7 +124,7 @@ public class SampleController {
 			}else if(jugador2.getSituacion().equals("eliminado")) {
 				puntos2.setText("ELIMINADO");
 			}
-			ganadoresPlan();
+			
 			turno=4;
 			turnos(turno);
 		}
@@ -137,6 +139,7 @@ public class SampleController {
 		if(!jugador4.getSituacion().equals("pedir")) {
 			turno=6;
 			turnos(turno);
+			ganadoresPlan();
 		}else if(turno == 5) {
 			jugador4 = c4.puntuacion(jugador4);
 			Image cartaNueva = new Image(jugador4.getRutaCarta());
@@ -149,7 +152,6 @@ public class SampleController {
 			}else if(jugador4.getSituacion().equals("eliminado")) {
 				puntos4.setText("ELIMINADO");
 			}
-			ganadoresPlan();
 			turno=6;
 			turnos(turno);
 		}	
@@ -164,6 +166,7 @@ public class SampleController {
 		if(!jugador5.getSituacion().equals("pedir")) {
 			turno=1;
 			turnos(turno);
+			ganadoresPlan();
 		}else if(turno == 6) {
 			jugador5 = c5.puntuacion(jugador5);
 			Image cartaNueva = new Image(jugador5.getRutaCarta());
@@ -176,7 +179,6 @@ public class SampleController {
 			}else if(jugador5.getSituacion().equals("eliminado")) {
 				puntos5.setText("ELIMINADO");
 			}
-			ganadoresPlan();
 			turno=1;
 			turnos(turno);
 		}	
@@ -192,6 +194,7 @@ public class SampleController {
 		if(!croupier.getSituacion().equals("pedir")) {
 			turno=2;
 			turnos(turno);
+			ganadoresPlan();
 		}else if(turno == 1) {
 			croupier = cBanca.puntuacion(croupier);
 			Image cartaNueva = new Image(croupier.getRutaCarta());
@@ -205,7 +208,6 @@ public class SampleController {
 					puntosBanca.setText("ELIMINADO");
 					
 				}
-			ganadoresPlan();
 			turno=2;
 			turnos(turno);
 			
@@ -221,13 +223,13 @@ public class SampleController {
 		if(!yo.getSituacion().equals("pedir")) {
 			turno=5;
 			turnos(turno);
+			ganadoresPlan();
 		}else if(turno == 4) {
 			yo = cYo.puntuacion(yo);
 			Image cartaNueva = new Image(yo.getRutaCarta());
 			cartaAdicional.setImage(cartaNueva); 
 			puntos3.setText("PUNTOS: "+ yo.getPuntuacion());
 			filtroPlayer(yo);
-			ganadoresPlan();
 			turno=5;
 			turnos(turno);
 		}
@@ -375,11 +377,15 @@ public class SampleController {
 				}
 			}
 			
-			 Alert alert = new Alert(Alert.AlertType.INFORMATION);
-			 alert.setHeaderText(null);
-			 alert.setTitle("Info");
-			 alert.setContentText("Ganador: " + ganadores);
-			 alert.showAndWait();
+			Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+		    alert.setHeaderText(null);
+		    alert.setTitle("Ganador");
+		    alert.setContentText("Ganador: " + ganadores);
+		    Optional<ButtonType> action = alert.showAndWait();
+		    if (action.get() == ButtonType.OK) {
+		    	inicio();
+		    }
+			;
 		}
 			
 	}
